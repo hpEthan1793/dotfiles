@@ -46,7 +46,7 @@ floating_modifier $mod
 bindsym mod1+Return exec --no-startup-id alacritty
 bindsym mod1+Shift+f exec --no-startup-id brave
 # bindsym mod1+Escape exec --no-startup-id i3lock -B 10 --clock --time-color=ffffff --layout-color=ffffff --date-color=ffffff --greeter-color=ffffff
-bindsym mod1+Escape exec --no-startup-id i3lockr --blur=15 -i=~/Pictures/hpethan-logo-c.png
+bindsym mod1+Escape exec --no-startup-id i3lock
 
 bindsym Print exec --no-startup-id flameshot gui
 bindsym mod1+n exec --no-startup-id dolphin
