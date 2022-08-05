@@ -4,15 +4,8 @@
 colors:
   # Default colors
   primary:
-    # background: "#1e2127"
-     background: "#2E3440"
-    # background: "#000000"
-    # background: "#232323"
-    # background: "#282A36"
-    # background: "#2d2d2d"
-
-    # foreground: "#D8DEE9"
-  foreground: "#cccccc"
+    background: "#212B30"
+    foreground: "#cccccc"
 
 font:
   # Normal (roman) font face
