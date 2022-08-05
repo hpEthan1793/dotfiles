@@ -48,7 +48,7 @@ bindsym mod1+Shift+f exec --no-startup-id brave
 # bindsym mod1+Escape exec --no-startup-id i3lock -B 10 --clock --time-color=ffffff --layout-color=ffffff --date-color=ffffff --greeter-color=ffffff
 bindsym mod1+Escape exec --no-startup-id i3lock
 
-bindsym Print exec --no-startup-id flameshot gui
+bindsym Print exec dbus-launch flameshot gui
 bindsym mod1+n exec --no-startup-id dolphin
 
 # kill focused window
@@ -190,76 +190,76 @@ bindsym $mod+r mode "resize"
 #        position top
 #}
 
-bar {
-    height 23
-    workspace_buttons yes
-    workspace_min_width 18
-	font pango:Noto Sans 12
-    
-	 position top
-    # position bottom
-
-	# system icons
-    # tray_output none
-    # tray_output $firstMonitor
-    # tray_output $secondMonitor
-
-    # OPTION 1 : i3status
-
-    # type status_command i3status without the config file and
-    # you will get the standard i3status bar
-    # Second one is the standard statusbar with my personal settings
-
-    status_command i3status -c ~/.config/i3/i3status.conf
-    #status_command i3status
-
-    # OPTION 2 : i3blocks
-
-    # https://github.com/vivien/i3blocks
-    # another way to provide text in the statusbar
-    # put hastag in front if not installed
-
-    # status_command i3blocks
-    # status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    # status_command i3blocks -c ~/.config/i3/i3blocks-rainbow.conf
-    # status_command i3blocks -c ~/.config/i3/i3blocks-original.conf
-    # status_command i3blocks -c ~/.config/i3/i3blocks-awesome.conf
-
-
-    # OPTION 3 : conky
-
-    # You can also replace the istatus bar with a conky
-    # start-conky-i3statusbar.sh is started and conky will follow
-    # documentation : https://i3wm.org/docs/user-contributed/conky-i3bar.html
-    # conky configuration is in conky-i3statusbar
-
-	# status_command ~/.config/i3/start-conky-i3statusbar.sh
-
-    # OPTION 4 : polybar
-
-    # polybar is launched elsewhere - search for the word
-    # from the opening of the "bar {...}" till the end has to go or hashtagged out
-    # in order for the system trayicons to show up in polybar
-
-    ##START THEMING BAR
-    # Theme name : ArcoLinux Default
-
-    # i3 bar colors
-    # variable border background Text
-
-    colors {
-        background #2F2F2F
-        statusline #eeeeee
-        separator  #666666
-
-        # colorclass           border  backgr. text
-        focused_workspace     #a9a9a9 #5f676a #ffffff
-        active_workspace      #a9a9a9 #5f676a #ffffff
-        inactive_workspace    #a9a9a9 #222222 #333
-        urgent_workspace      #a9a9a9 #d42121 #da2c26
-        }
-
-    }
+#bar {
+#    height 23
+#    workspace_buttons yes
+#    workspace_min_width 18
+#	font pango:Noto Sans 12
+#    
+#	 position top
+#    # position bottom
+#
+#	# system icons
+#    # tray_output none
+#    # tray_output $firstMonitor
+#    # tray_output $secondMonitor
+#
+#    # OPTION 1 : i3status
+#
+#    # type status_command i3status without the config file and
+#    # you will get the standard i3status bar
+#    # Second one is the standard statusbar with my personal settings
+#
+#    status_command i3status -c ~/.config/i3/i3status.conf
+#    #status_command i3status
+#
+#    # OPTION 2 : i3blocks
+#
+#    # https://github.com/vivien/i3blocks
+#    # another way to provide text in the statusbar
+#    # put hastag in front if not installed
+#
+#    # status_command i3blocks
+#    # status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#    # status_command i3blocks -c ~/.config/i3/i3blocks-rainbow.conf
+#    # status_command i3blocks -c ~/.config/i3/i3blocks-original.conf
+#    # status_command i3blocks -c ~/.config/i3/i3blocks-awesome.conf
+#
+#
+#    # OPTION 3 : conky
+#
+#    # You can also replace the istatus bar with a conky
+#    # start-conky-i3statusbar.sh is started and conky will follow
+#    # documentation : https://i3wm.org/docs/user-contributed/conky-i3bar.html
+#    # conky configuration is in conky-i3statusbar
+#
+#	# status_command ~/.config/i3/start-conky-i3statusbar.sh
+#
+#    # OPTION 4 : polybar
+#
+#    # polybar is launched elsewhere - search for the word
+#    # from the opening of the "bar {...}" till the end has to go or hashtagged out
+#    # in order for the system trayicons to show up in polybar
+#
+#    ##START THEMING BAR
+#    # Theme name : ArcoLinux Default
+#
+#    # i3 bar colors
+#    # variable border background Text
+#
+#    colors {
+#        background #123456
+#        statusline #eeeeee
+#        separator  #666666
+#
+#        # colorclass           border  backgr. text
+#        focused_workspace     #a9a9a9 #5f676a #ffffff
+#        active_workspace      #a9a9a9 #5f676a #ffffff
+#        inactive_workspace    #a9a9a9 #222222 #333
+#        urgent_workspace      #a9a9a9 #d42121 #da2c26
+#        }
+#
+#    }
 
 bindsym control+mod1+X mode "$mode_system"
 set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
@@ -283,6 +283,8 @@ mode "$mode_system" {
 exec_always feh --bg-scale --randomize ~/Pictures/Wallpapers/*
 exec_always xrandr --output HDMI1 --primary --left-of eDP1
 exec_always sudo virsh net-start default
+exec_always $HOME/.config/polybar/launch.sh --forest
+
 
 # For Arco
 bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager

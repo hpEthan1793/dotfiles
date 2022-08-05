@@ -1,3 +1,10 @@
-set -g -x fish_greeting 'Hi Ethan'
-alias serve="browser-sync start --server --files ."
-alias servey="yarn dev ."
+set fish_greeting
+
+if status is-login
+    if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+        exec dbus-launch startx ~/.config/X11/xinitrc
+    end
+end
+
+neofetch
+cd
