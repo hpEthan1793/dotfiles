@@ -43,10 +43,10 @@ bindsym XF86MonBrightnessDown exec xrandr --output eDP1 --brightness 0.4 # incre
 floating_modifier $mod
 
 # start a terminal
-bindsym mod1+Return exec --no-startup-id alacritty
+bindsym mod1+Return exec --no-startup-id kitty
 bindsym mod1+Shift+f exec --no-startup-id brave
 # bindsym mod1+Escape exec --no-startup-id i3lock -B 10 --clock --time-color=ffffff --layout-color=ffffff --date-color=ffffff --greeter-color=ffffff
-bindsym mod1+Escape exec --no-startup-id i3lock
+bindsym mod1+Escape exec --no-startup-id i3lockr -b 80
 
 bindsym mod1+n exec --no-startup-id nautilus
 bindsym Print exec flameshot gui
@@ -55,7 +55,7 @@ bindsym Print exec flameshot gui
 bindsym mod1+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym mod1+Shift+Return exec --no-startup-id dmenu_run
+bindsym mod1+Shift+Return exec --no-startup-id ~/.config/polybar/shapes/scripts/launcher.sh
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -280,16 +280,12 @@ mode "$mode_system" {
 
 
 
-exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/Wallpapers/*
+exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/Wallpapers/
 exec_always --no-startup-id xrandr --output HDMI1 --primary --left-of eDP1
 exec_always --no-startup-id virsh net-start default
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --shapes
 exec_always dunst &
-
-
-# For Arco
-bindsym control+mod1+m exec --no-startup-id xfce4-settings-manager
-
+exec_always picom &
 
 
 for_window [class=".*"] border pixel 0

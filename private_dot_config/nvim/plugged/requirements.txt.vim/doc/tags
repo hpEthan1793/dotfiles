@@ -1,0 +1,11 @@
+coc#source#requirements#complete()	requirements.txt	/*coc#source#requirements#complete()*
+coc#source#requirements#init()	requirements.txt	/*coc#source#requirements#init()*
+requirements	requirements.txt	/*requirements*
+requirements#update_cache()	requirements.txt	/*requirements#update_cache()*
+requirements-config	requirements.txt	/*requirements-config*
+requirements-contents	requirements.txt	/*requirements-contents*
+requirements-functions	requirements.txt	/*requirements-functions*
+requirements-intro	requirements.txt	/*requirements-intro*
+requirements.txt	requirements.txt	/*requirements.txt*
+requirements:g:requirements#cache	requirements.txt	/*requirements:g:requirements#cache*
+requirements:g:requirements#items	requirements.txt	/*requirements:g:requirements#items*

@@ -130,14 +130,17 @@ let s:should_complete_map = {
 \   '<default>': '\v[a-zA-Z$_][a-zA-Z$_0-9]*$|\.$',
 \   'clojure': s:lisp_regex,
 \   'lisp': s:lisp_regex,
+\   'racket': '\k\+$',
 \   'typescript': '\v[a-zA-Z$_][a-zA-Z$_0-9]*$|\.$|''$|"$',
 \   'rust': '\v[a-zA-Z$_][a-zA-Z$_0-9]*$|\.$|::$',
 \   'cpp': '\v[a-zA-Z$_][a-zA-Z$_0-9]*$|\.$|::$|-\>$',
+\   'c': '\v[a-zA-Z$_][a-zA-Z$_0-9]*$|\.$|-\>$',
 \}
 
 " Regular expressions for finding the start column to replace with completion.
 let s:omni_start_map = {
 \   '<default>': '\v[a-zA-Z$_][a-zA-Z$_0-9]*$',
+\   'racket': '\k\+$',
 \}
 
 " A map of exact characters for triggering LSP completions. Do not forget to
@@ -147,6 +150,7 @@ let s:trigger_character_map = {
 \   'typescript': ['.', '''', '"'],
 \   'rust': ['.', '::'],
 \   'cpp': ['.', '::', '->'],
+\   'c': ['.', '->'],
 \}
 
 function! s:GetFiletypeValue(map, filetype) abort
@@ -581,7 +585,7 @@ function! ale#completion#ParseLSPCompletions(response) abort
             continue
         endif
 
-        if get(l:item, 'insertTextFormat') is s:LSP_INSERT_TEXT_FORMAT_PLAIN
+        if get(l:item, 'insertTextFormat', s:LSP_INSERT_TEXT_FORMAT_PLAIN) is s:LSP_INSERT_TEXT_FORMAT_PLAIN
         \&& type(get(l:item, 'textEdit')) is v:t_dict
             let l:text = l:item.textEdit.newText
         elseif type(get(l:item, 'insertText')) is v:t_string
@@ -776,7 +780,8 @@ function! s:OnReady(linter, lsp_details) abort
 
     if a:linter.lsp is# 'tsserver'
         if get(g:, 'ale_completion_tsserver_autoimport') is 1
-            execute 'echom `g:ale_completion_tsserver_autoimport` is deprecated. Use `g:ale_completion_autoimport` instead.'''
+            " no-custom-checks
+            echom '`g:ale_completion_tsserver_autoimport` is deprecated. Use `g:ale_completion_autoimport` instead.'
         endif
 
         let l:message = ale#lsp#tsserver_message#Completions(

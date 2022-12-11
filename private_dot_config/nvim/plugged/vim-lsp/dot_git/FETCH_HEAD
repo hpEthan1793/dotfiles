@@ -1,0 +1,13 @@
+0a8d2dfaedf1e51859317f675cefe8403041e76a		branch 'master' of https://github.com/prabirshrestha/vim-lsp
+c2c166975efef9b4c450fef7da97a32ded87314d	not-for-merge	branch 'array-perf' of https://github.com/prabirshrestha/vim-lsp
+293e8ae932ffb70fe444c89e7aa995eecbc5c1fa	not-for-merge	branch 'client-parse' of https://github.com/prabirshrestha/vim-lsp
+383f690e80ed9e2697eb40020532ef1f66c010e7	not-for-merge	branch 'fix-completion-documentation-maxheight' of https://github.com/prabirshrestha/vim-lsp
+723fa3a0b6c36d5cda56f9fb9f803cc4f90b8eed	not-for-merge	branch 'fix-filter-text-correction' of https://github.com/prabirshrestha/vim-lsp
+1a84ed5f68b2ed0f35aa5999d24f96a89e6a515f	not-for-merge	branch 'fix-float' of https://github.com/prabirshrestha/vim-lsp
+49a886853e0b9e61fc1ac11802b77a601c266c6e	not-for-merge	branch 'fix-root_uri' of https://github.com/prabirshrestha/vim-lsp
+0616aab6aa1923b3cf35300a87b731fba9a7a464	not-for-merge	branch 'fix-vim-popup-conceal' of https://github.com/prabirshrestha/vim-lsp
+1724318f4f838d7de31ad4146e5f4eed0348d317	not-for-merge	branch 'get_kind_perf' of https://github.com/prabirshrestha/vim-lsp
+92a925346dc30074783a5125782e5bfe10c2245f	not-for-merge	branch 'lua-lsp-client' of https://github.com/prabirshrestha/vim-lsp
+e73dee72765897da450092a18d57a94d1aa5dc4b	not-for-merge	branch 'native-lsp-client' of https://github.com/prabirshrestha/vim-lsp
+231ab3cb230e599b83f4f2eaf4a1cc03a4cff4dd	not-for-merge	branch 'pr1078' of https://github.com/prabirshrestha/vim-lsp
+82796606f058c3f33eef6f5f881007cb62c04967	not-for-merge	branch 'use-lua' of https://github.com/prabirshrestha/vim-lsp
