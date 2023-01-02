@@ -12,6 +12,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- My Plugins
+  use 'preservim/nerdtree'
   use ('prettier/vim-prettier', { run = 'yarn install' })
   use 'mattn/emmet-vim'
   use'wuelnerdotexe/vim-astro'
@@ -146,7 +147,7 @@ vim.keymap.set({'n',}, '<A-j>' , '<C-w>j')
 vim.keymap.set({'n',}, '<A-k>' , '<C-w>k')
 vim.keymap.set({'n',}, '<A-l>' , '<C-w>l')
 vim.keymap.set({'n',}, '<A-h>' , '<C-w>h')
-vim.keymap.set({'n'}, '<C-b>', vim.cmd.Ex)
+vim.keymap.set({'n'}, '<C-b>', vim.cmd.NERDTreeToggle)
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`

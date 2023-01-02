@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			Home
+		</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+<style>
+html{
+	color: #D8DEE9;
+}
+</style>
+	<body>
+		<div class="flex justify-center items-center h-screen bg-[#2E3440]">
+			<div class"w-[80vw]">
+				<div class="text-center text-4xl">
+					<script>
+						const d = new Date();
+						document.write(d.toUTCString());
+					</script>
+				</div>
+				<div class="text-4xl font-bold text-center text-[#EBCB8B]">
+					<script>
+						let greeting = "Good Afternoon Ethan";
+						if(d.getHours() < 12){
+							greeting = "Good Morning Ethan";
+						}
+						if(d.getHours() >= 18 && d.getHours() <= 24){
+							greeting = "Good Evening Ethan";
+						}
+						document.write(greeting);
+					</script>
+				</div>
+				<hr  class="m-5" />
+				<form action="https://google.com/search" method="get" class="text-black">
+					<input type="hidden" name="sitesearch" />
+					<input type="text" name="q" class="mx-auto bg-[#81A1C1] text-5xl flex items-center justify-center p-3 w-96 rounded-lg text-white placeholder:text-[#333] placeholder:text-center border border-[5px] border-[#D08770]" placeholder="Google" />
+				</form>
+				<div class="grid grid-cols-4 gap-5 mt-5">
+					<div class="p-4 h-96 drop-shadow-lg bg-[#434C5E]">
+						<h1 class="text-4xl font-bold text-center text-[#BF616A]">Media</h1>
+						<hr />
+						<ul class="text-3xl mt-4">
+							<li><a href="https://youtube.com">Youtube</a></li>
+							<li><a href="https://soundcloud.com">Soundcloud</a></li>
+							<li><a href="https://spotify.com">Spotify</a></li>
+							<li><a href="https://music.youtube.com">Youtube Music</a></li>
+							<li><a href="https://dropbox.com">Dropbox</a></li>
+						</ul>
+					</div>
+					<div class="p-4 h-96 drop-shadow-lg bg-[#434C5E]">
+						<h1 class="text-4xl font-bold text-center text-[#D08770]">Social</h1>
+						<hr />
+						<ul class="text-3xl mt-4">
+							<li><a href="https://facebook.com">Facebook</a></li>
+							<li><a href="https://business.facebook.com">Facebook B</a></li>
+							<li><a href="https://instagram.com">Instagram</a></li>
+							<li><a href="https://mastodon.social">Mastodon</a></li>
+							<li><a href="https://discord.com">Discord</a></li>
+							<li><a href="https://twitter.com">Twitter</a></li>
+							<li><a href="http://localhost:49999">RSS</a></li>
+						</ul>
+					</div>
+					<div class="p-4 h-96 drop-shadow-lg bg-[#434C5E]">
+						<h1 class="text-4xl font-bold text-center text-[#A3BE8C]">Tech</h1>
+						<hr />
+						<ul class="text-3xl mt-4">
+							<li><a href="https://github.com">Github</a></li>
+							<li><a href="https://w3schools.com">W3 Schools</a></li>
+							<li><a href="https://afrihost.com">Afrihost</a></li>
+							<li><a href="https://linode.com">Linode</a></li>
+							<li><a href="https://christitus.com">CTT</a></li>
+							<li><a href="https://archlinux.org">Arch</a></li>
+						</ul>
+					</div>
+					<div class="p-4 h-96 drop-shadow-lg bg-[#434C5E]">
+						<h1 class="text-4xl font-bold text-center text-[#B48EAD]">Other</h1>
+						<hr />
+						<ul class="text-3xl mt-4">
+							<li><a href="https://onrusestuaryforum.co.za">OREF</a></li>
+							<li><a href="https://hermanuschessclub.co.za">HCC</a></li>
+							<li><a href="https://chessa.co.za">CHESSA</a></li>
+							<li><a href="https://lichess.org">LICHESS</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+ <script>
+   var stateObj = { foo: "bar" };
+   history.pushState(stateObj, "page without extension", "xyz");
+ </script>

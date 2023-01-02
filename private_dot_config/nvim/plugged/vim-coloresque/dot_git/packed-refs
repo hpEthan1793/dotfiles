@@ -1,6 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-98e3b10f763067107062a01bbdfec6a73f6fd2f0 refs/remotes/origin/fix_neovim
-e12a5007068e74c8ffe5b1da91c25989de9c2081 refs/remotes/origin/master
-11fcb3de775993eb3702435f130b9070d5d68452 refs/remotes/origin/pr/23
-64e1a87df2cdd0c1507fa50bc2372625f1a1f61f refs/remotes/origin/testing
-0c21b1469993e610600e88e734ffe90b9c10a514 refs/tags/0.9.5
