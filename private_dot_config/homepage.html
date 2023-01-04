@@ -7,18 +7,23 @@
 		</title>
 		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
-<style>
+	<style>
 html{
 	color: #D8DEE9;
 }
-</style>
+						a:hover{
+							color: #D08770;
+							font-weight: bold;
+						}
+	</style>
 	<body>
 		<div class="flex justify-center items-center h-screen bg-[#2E3440]">
 			<div class"w-[80vw]">
 				<div class="text-center text-4xl">
 					<script>
-						const d = new Date();
-						document.write(d.toUTCString());
+							const d = new Date();
+							document.write(d.toUTCString());
+
 					</script>
 				</div>
 				<div class="text-4xl font-bold text-center text-[#EBCB8B]">
@@ -36,10 +41,10 @@ html{
 				<hr  class="m-5" />
 				<form action="https://google.com/search" method="get" class="text-black">
 					<input type="hidden" name="sitesearch" />
-					<input type="text" name="q" class="mx-auto bg-[#81A1C1] text-5xl flex items-center justify-center p-3 w-96 rounded-lg text-white placeholder:text-[#333] placeholder:text-center border border-[5px] border-[#D08770]" placeholder="Google" />
+					<input type="text" name="q" class="mx-auto bg-[#81A1C1] text-5xl flex items-center justify-center p-3 w-[100] rounded-lg text-white placeholder:text-[#333] placeholder:text-center border border-[5px] border-[#D08770]" placeholder="Google Search" />
 				</form>
 				<div class="grid grid-cols-4 gap-5 mt-5">
-					<div class="p-4 h-96 drop-shadow-lg bg-[#434C5E]">
+					<div class="p-4 h-96 drop-shadow-lg bg-[#434C5E] w-64">
 						<h1 class="text-4xl font-bold text-center text-[#BF616A]">Media</h1>
 						<hr />
 						<ul class="text-3xl mt-4">
@@ -90,7 +95,7 @@ html{
 		</div>
 	</body>
 </html>
- <script>
-   var stateObj = { foo: "bar" };
-   history.pushState(stateObj, "page without extension", "xyz");
- </script>
+<script>
+	var stateObj = { foo: "bar" };
+	history.pushState(stateObj, "page without extension", "xyz");
+</script>
