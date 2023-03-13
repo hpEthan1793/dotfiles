@@ -295,7 +295,7 @@ mode "$mode_system" {
 
 
 
-exec_always --no-startup-id feh --bg-scale --randomize ~/Pictures/Wallpapers/
+exec_always --no-startup-id feh --bg-fill --randomize /usr/share/backgrounds/gnome
 exec_always --no-startup-id xrandr --output HDMI1 --primary --left-of eDP1
 exec_always --no-startup-id virsh net-start default
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
