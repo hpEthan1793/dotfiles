@@ -295,15 +295,15 @@ mode "$mode_system" {
 
 
 
-exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/backgrounds/
+exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/
 exec_always --no-startup-id xrandr --output HDMI1 --primary --left-of eDP1
 exec_always --no-startup-id virsh net-start default
 exec_always --no-startup-id $HOME/.config/polybar/launchy.sh
 exec_always dunst &
 exec_always picom --config ~/.config/i3/picom.conf &
 
-exec xinput set-prop 10 312 1
-exec xinput set-prop 10 291 1
+exec xinput set-prop 10 314 1
+exec xinput set-prop 10 293 1
 
 
 for_window [class=".*"] border pixel 0
