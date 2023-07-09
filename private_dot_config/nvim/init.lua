@@ -189,7 +189,6 @@ require('lazy').setup({
 -- Custom plugins
 {"catppuccin/nvim", name = "catppuccin" },
 {"wuelnerdotexe/vim-astro", name = "vim-astro" },
-{"prettier/vim-prettier", name = "prettier" },
 {"mattn/emmet-vim", name="emmet"},
 {"nordtheme/vim", name="nordtheme"},
 {"morhetz/gruvbox", name="Gruvbox"},
@@ -205,7 +204,8 @@ require('lazy').setup({
     require("nvim-tree").setup {}
   end,
 },
-{"nvim-tree/nvim-web-devicons", name="nvim-web-devicons"}
+{"nvim-tree/nvim-web-devicons", name="nvim-web-devicons"},
+  {"sbdchd/neoformat", name="neoformat"}
 
 
 }, {})
@@ -526,3 +526,7 @@ vim.keymap.set('n', '<A-k>', '<C-w>k')
 vim.keymap.set('n', '<A-h>', '<C-w>h')
 vim.keymap.set('n', '<A-l>', '<C-w>l')
 vim.keymap.set('n', '<A-b>', function() vim.cmd('NvimTreeToggle') end)
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  command = "Neoformat",
+})
