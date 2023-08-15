@@ -43,19 +43,19 @@ bindsym XF86MonBrightnessDown exec light -U 10 # increase screen brightness
 floating_modifier $mod
 
 # start a terminal
-bindsym mod1+Return exec --no-startup-id kitty
+bindsym mod1+Return exec --no-startup-id alacritty
 bindsym mod1+Shift+f exec --no-startup-id brave
 # bindsym mod1+Escape exec --no-startup-id i3lock -B 10 --clock --time-color=ffffff --layout-color=ffffff --date-color=ffffff --greeter-color=ffffff
 bindsym mod1+Escape exec --no-startup-id i3lockr -b 80
 
-bindsym mod1+n exec --no-startup-id thunar
+bindsym mod1+n exec --no-startup-id nemo
 bindsym Print exec flameshot gui
 
 # kill focused window
 bindsym mod1+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym mod1+Shift+Return exec --no-startup-id ~/.config/rofi/launchers/type-4/launcher.sh
+bindsym mod1+Shift+Return exec --no-startup-id rofi -show drun
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -185,25 +185,23 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-#bar {
+bar {
 #    
-#    #status_command    i3status
-#    status_command i3status -c ~/.config/i3/i3status.conf
-#    position top
-#
-#    colors {
-#        background #2E3440
-#        statusline #D8DEE9
-#        separator  #666666
-#
-#        # colorclass           border  backgr. text
-#        focused_workspace     #5E81AC #5E81AC #ffffff
-#        active_workspace      #5E81AC #5E81AC #ffffff
-#        inactive_workspace    #4C566A #4C566A #ECEFF4
-#        urgent_workspace      #BF616A #BF616A #ECEFF4
-#        }
-#
-#}
+    #status_command    i3status
+    #status_command i3status -c ~/.config/i3/i3status.conf
+    font pango:DejaVu Sans Mono, FontAwesome 12
+    position top
+    status_command i3status-rs ~/.config/i3status-rust/config.toml
+    colors {
+        separator #666666
+        background #222222
+        statusline #dddddd
+        focused_workspace #0088CC #0088CC #ffffff
+        active_workspace #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace #2f343a #900000 #ffffff
+    }
+}
 
 #bar {
 #    height 23
@@ -295,10 +293,11 @@ mode "$mode_system" {
 
 
 
-exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/
+exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpapers
 exec_always --no-startup-id xrandr --output HDMI1 --primary --left-of eDP1
 exec_always --no-startup-id virsh net-start default
-exec_always --no-startup-id $HOME/.config/polybar/launchy.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launchy.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
 exec_always dunst &
 exec_always picom --config ~/.config/i3/picom.conf &
 
@@ -309,67 +308,14 @@ exec xinput set-prop 10 293 1
 for_window [class=".*"] border pixel 0
 gaps inner 9
 
-# Window color settings
-# class                 border  backgr. text    indicator child_border
-client.focused          #282828 #282828 #ebdbb2 #282828   #282828
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
-client.background       #282828
+client.background       #F8F8F2
 
-#######
-#THEME#
-#######
+bindsym $mod+d exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
-# set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-
-# font used by i3 for titles and bars
-font pango:Hack 9
-
-#start of bar section
-#bar {
-#    position top
-#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#    colors {
-#        # bar background color
-#        background $bg
-#        # text color used for blocks that do not have a color specified.
-#        statusline $yellow
-#        # workspaces section            
-#        #                    border  backgr. text
-#        focused_workspace    $aqua $aqua $darkgray
-#        inactive_workspace   $darkgray $darkgray $yellow
-#        active_workspace     $darkgray $darkgray $yellow
-#        urgent_workspace     $red $red $bg
-#    }
-#}
-#end of bar section
-
-#start of window title bars & borders section
-
-# green gruvbox
-# class                 border|backgr|text|indicator|child_border
-#client.focused          $green $green $darkgray $purple $darkgray
-#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-#client.urgent           $red $red $white $red $red
-
-# blue gruvbox
-# class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
-
-#end of window title bars & borders section
